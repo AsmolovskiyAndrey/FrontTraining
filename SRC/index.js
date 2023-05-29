@@ -1,17 +1,16 @@
-const arr = [1, 1, 2, 2, 2, 44, 4, "qwe", "qwe"];
+const prom = false;
 
-function getSet(params) {
-  let mySet = {};
-
-  params.forEach((el) => {
-    if (mySet[el]) {
-      mySet[el] = mySet[el] + 1;
-    } else {
-      mySet[el] = 1;
-    }
+const ourPromise = (timeout) =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (!prom) {
+        reject("Some error");
+        return;
+      }
+      resolve("Ok response");
+    }, timeout);
   });
-  return mySet;
-}
 
-const q = getSet(arr);
-console.log(q);
+ourPromise(2000)
+  .then(() => console.log("ok"))
+  .catch(() => console.log("error"));
