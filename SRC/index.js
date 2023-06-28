@@ -4,7 +4,7 @@ const ourPromise = (timeout) =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
       if (!prom) {
-        reject("Some error");
+        reject("Some error 1");
         return;
       }
       resolve("Ok response");
