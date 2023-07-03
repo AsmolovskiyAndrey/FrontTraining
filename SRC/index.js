@@ -1,16 +1,32 @@
-const prom = false;
+// console.log("txt");
+// const fs = require("fs");
 
-const ourPromise = (timeout) =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (!prom) {
-        reject("Some error 1");
-        return;
-      }
-      resolve("Ok response");
-    }, timeout);
-  });
+// fs.readFile("./data.txt", "utf8", (error, data) => {
+//   //? ассинхронно
+//   if (error) {
+//     console.error(error);
+//   } else {
+//     console.log(data); //? test text for my work
+//   }
+// });
 
-ourPromise(2000)
-  .then(() => console.log("ok"))
-  .catch(() => console.log("error"));
+const array = [
+  '"asd1","asd2","asd3"',
+  '"asdqwe1","asdqwe2","asdqwe3"',
+  '"asdzxc1","asdzxc2","asdzxc3"',
+  '"asdzxcqw1","asdzxcqw2","asdzxcqw3"',
+  '"asdzxc1","asdzxc2","asdzxc3"',
+
+]
+
+let set = new Set()
+
+array.forEach(element => {
+  // console.log(element.split(',')[1]);
+  set.add(element.split(',')[1])
+});
+
+const setToArray = Array.from(set)
+setToArray.splice(0,1)
+
+console.log(setToArray);
